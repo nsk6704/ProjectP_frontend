@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex items-center justify-center">
@@ -6,12 +8,12 @@ export default function NotFound() {
         <p className="mb-6">
           Sorry, the page you are looking for does not exist.
         </p>
-        <a
+        <Link
           href="/"
-          className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90"
+          className="bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 inline-block"
         >
           Go back home
-        </a>
+        </Link>
       </div>
     </div>
   );
