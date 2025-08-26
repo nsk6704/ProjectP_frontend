@@ -66,7 +66,7 @@ export default async function StudentDashboard() {
             </h2>
           </div>
           <p className="text-lg font-bold text-muted-foreground">
-            Ready to land your dream job? Let's get started! 🚀
+            Ready to land your dream job? Let&apos;s get started! 🚀
           </p>
         </div>
 
