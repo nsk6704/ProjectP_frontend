@@ -1,4 +1,4 @@
-# Placement Management System
+# Charitam - Placement Management System
 
 A modern web application built with Next.js for managing student placements, designed with a brutalist aesthetic and powerful features for students, placement coordinators, and administrators.
 
@@ -35,7 +35,7 @@ A modern web application built with Next.js for managing student placements, des
 
 ## 🎨 Design Philosophy
 
-This application features a unique **brutalist design** approach with:
+Charitam features a unique **brutalist design** approach with:
 - Bold, high-contrast colors
 - Heavy black borders and dramatic shadows
 - Geometric layouts with intentional imperfections
@@ -45,7 +45,7 @@ This application features a unique **brutalist design** approach with:
 ## 📁 Project Structure
 
 ```
-placement-system/
+charitam/
 ├── app/
 │   ├── globals.css          # Global styles and Tailwind config
 │   ├── layout.js            # Root layout with providers
@@ -77,7 +77,7 @@ placement-system/
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd placement-system
+   cd charitam
    ```
 
 2. **Install dependencies**
@@ -147,7 +147,7 @@ npm run lint     # Run ESLint
 
 ### Theme Configuration
 
-The app uses a custom brutalist theme defined in `globals.css`. Key design tokens:
+Charitam uses a custom brutalist theme defined in `globals.css`. Key design tokens:
 
 ```css
 :root {
@@ -169,7 +169,7 @@ Components use Tailwind CSS with custom utility classes for the brutalist aesthe
 
 ## 📱 Responsive Design
 
-The application is fully responsive with:
+Charitam is fully responsive with:
 - Mobile-first design approach
 - Adaptive layouts for tablet and desktop
 - Touch-friendly interactive elements
@@ -228,4 +228,4 @@ For support and questions:
 
 ---
 
-Built with ❤️ using Next.js and modern web technologies.
+**Charitam** - Built with ❤️ using Next.js and modern web technologies by Saketh and Kushagra - the 2 Wise Men.
