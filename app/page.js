@@ -1,103 +1,164 @@
-import Image from "next/image";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { GraduationCap, Building2, Users, BarChart3 } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="border-b-4 border-black dark:border-white bg-card">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center gap-2">
+              <div className="bg-black dark:bg-white text-white dark:text-black p-2 border-2 border-black dark:border-white">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <h1 className="text-2xl font-black  tracking-wider">Charitam</h1>
+            </div>
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <Button className="bg-black text-white border-4 border-black shadow-[4px_4px_0px_0px_black] hover:shadow-[2px_2px_0px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] font-black uppercase">
+                    SIGN IN
+                  </Button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <div className="border-4 border-black dark:border-white bg-white p-2">
+                  <UserButton afterSignOutUrl="/" />
+                </div>
+              </SignedIn>
+            </div>
+          </div>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Hero Section */}
+      <main className="flex-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Hero */}
+          <div className="text-center mb-16">
+            <div className="bg-yellow-400 border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_black] dark:shadow-[8px_8px_0px_0px_white] inline-block px-8 py-4 rotate-[-1deg] mb-4">
+              <h2 className="text-6xl font-black text-black">PLACEMENT</h2>
+            </div>
+            <div className="bg-pink-400 border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_black] dark:shadow-[8px_8px_0px_0px_white] inline-block px-8 py-4 rotate-[1deg] mb-8">
+              <h2 className="text-6xl font-black text-black">PORTAL</h2>
+            </div>
+
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-bold">
+              Streamline your placement process. Connect students with
+              opportunities. Track applications and manage your career journey.
+            </p>
+
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button
+                  size="lg"
+                  className="bg-black text-white border-4 border-black shadow-[4px_4px_0px_0px_black] hover:shadow-[2px_2px_0px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] font-black uppercase text-lg px-8 py-4 mr-4"
+                >
+                  GET STARTED
+                </Button>
+              </SignInButton>
+            </SignedOut>
+
+            <SignedIn>
+              <Link href="/dashboard">
+                <Button
+                  size="lg"
+                  className="bg-black text-white border-4 border-black shadow-[4px_4px_0px_0px_black] hover:shadow-[2px_2px_0px_0px_black] hover:translate-x-[2px] hover:translate-y-[2px] font-black uppercase text-lg px-8 py-4"
+                >
+                  GO TO DASHBOARD
+                </Button>
+              </Link>
+            </SignedIn>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <Card className="border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_black] dark:shadow-[8px_8px_0px_0px_white] bg-blue-300 hover:shadow-[4px_4px_0px_0px_black] dark:hover:shadow-[4px_4px_0px_0px_white] hover:translate-x-1 hover:translate-y-1 transition-all duration-150 rounded-none">
+              <CardHeader>
+                <div className="flex items-center mb-2">
+                  <div className="bg-black text-white p-3 border-2 border-black mr-4">
+                    <Users className="h-6 w-6" />
+                  </div>
+                  <CardTitle className="text-xl font-black text-black uppercase">
+                    Students
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-black font-bold">
+                  Manage profiles, apply to companies, track applications
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_black] dark:shadow-[8px_8px_0px_0px_white] bg-green-300 hover:shadow-[4px_4px_0px_0px_black] dark:hover:shadow-[4px_4px_0px_0px_white] hover:translate-x-1 hover:translate-y-1 transition-all duration-150 rounded-none">
+              <CardHeader>
+                <div className="flex items-center mb-2">
+                  <div className="bg-black text-white p-3 border-2 border-black mr-4">
+                    <Building2 className="h-6 w-6" />
+                  </div>
+                  <CardTitle className="text-xl font-black text-black uppercase">
+                    SPCs
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-black font-bold">
+                  Coordinate placements, manage students, company liaison
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_black] dark:shadow-[8px_8px_0px_0px_white] bg-orange-300 hover:shadow-[4px_4px_0px_0px_black] dark:hover:shadow-[4px_4px_0px_0px_white] hover:translate-x-1 hover:translate-y-1 transition-all duration-150 rounded-none">
+              <CardHeader>
+                <div className="flex items-center mb-2">
+                  <div className="bg-black text-white p-3 border-2 border-black mr-4">
+                    <BarChart3 className="h-6 w-6" />
+                  </div>
+                  <CardTitle className="text-xl font-black text-black uppercase">
+                    Admin
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-black font-bold">
+                  Full system access, statistics, user management
+                </CardDescription>
+              </CardContent>
+            </Card>
+
+            <Card className="border-4 border-black dark:border-white shadow-[8px_8px_0px_0px_black] dark:shadow-[8px_8px_0px_0px_white] bg-purple-300 hover:shadow-[4px_4px_0px_0px_black] dark:hover:shadow-[4px_4px_0px_0px_white] hover:translate-x-1 hover:translate-y-1 transition-all duration-150 rounded-none">
+              <CardHeader>
+                <div className="flex items-center mb-2">
+                  <div className="bg-black text-white p-3 border-2 border-black mr-4">
+                    <GraduationCap className="h-6 w-6" />
+                  </div>
+                  <CardTitle className="text-xl font-black text-black uppercase">
+                    Tracking
+                  </CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-black font-bold">
+                  Real-time application status and placement analytics
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
